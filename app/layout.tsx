@@ -1,4 +1,5 @@
 import '@root/global.scss';
+import "@root/global.css";
 import Providers from '@components/Providers';
 import Avatar from '@root/components/Avatar';
 import Button from '@root/components/Button';
@@ -10,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-us">
       <body className="theme-light">
-        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b">
+        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm">
           <div className="flex justify-between items-center p-4">
             <Avatar src={MainLogo.src} href="./" />
             <div className="w-4rem">
