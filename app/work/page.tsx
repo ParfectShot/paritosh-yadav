@@ -5,7 +5,7 @@ import ListItem from '@root/components/ListItem';
 export default function WorkPage() {
   return (
     <main className="p-4 max-w-4xl mx-auto md:p-8">
-      <h1 className="text-3xl font-bold mb-8">Work Experience</h1>
+      <h1 className="text-3xl mb-8 text-center">Work Experience</h1>
 
       <Accordion
         title={
