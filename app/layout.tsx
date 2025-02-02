@@ -10,10 +10,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-us">
       <body className="theme-light">
-        <div className="flex justify-between items-center p-4">
-          <Avatar src={MainLogo.src} href="./" />
-          <div className="w-4rem">
-            <Button>Contact</Button>
+        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b">
+          <div className="flex justify-between items-center p-4">
+            <Avatar src={MainLogo.src} href="./" />
+            <div className="w-4rem">
+              <Button>Contact</Button>
+            </div>
           </div>
         </div>
         <div className="flex items-center justify-center">
@@ -25,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Photography
             </Link>
             <Link className="mx-4" href="/blog">
-              About
+              Blog
             </Link>
           </Navigation>
         </div>

@@ -9,7 +9,7 @@ import Row from '@components/Row';
 
 interface AccordionProps {
   defaultValue?: boolean;
-  title: string;
+  title: string | React.ReactNode;
   children?: React.ReactNode;
 }
 
