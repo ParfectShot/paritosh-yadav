@@ -15,7 +15,12 @@ interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ children, logoHref, logoTarget, onClickLogo, logo, left, right }) => {
-  let logoElement = <button className={styles.logo}>{logo}</button>;
+  let logoElement: React.ReactNode = null;
+
+  if (logo) {
+    logoElement = <button className={styles.logo}>{logo}</button>;
+  }
+  
 
   if (onClickLogo) {
     logoElement = (
