@@ -11,9 +11,10 @@ interface AccordionProps {
   defaultValue?: boolean;
   title: string | React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ defaultValue = false, title, children }) => {
+const Accordion: React.FC<AccordionProps> = ({ defaultValue = false, title, children, className = "" }) => {
   const [show, setShow] = React.useState<boolean>(defaultValue);
   const accordionRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -24,7 +25,7 @@ const Accordion: React.FC<AccordionProps> = ({ defaultValue = false, title, chil
   return (
     <>
       <Row ref={accordionRef} tabIndex={0} role="button" onClick={toggleShow} aria-expanded={show}>
-        <div className={Utilities.classNames(styles.flex, show ? styles.active : undefined)}>
+        <div className={Utilities.classNames(styles.flex, show ? styles.active : undefined) + ' ' + className}>
           <span className={styles.icon}>{show ? '▾' : '▸'}</span>
           <span className={styles.content}>{title}</span>
         </div>

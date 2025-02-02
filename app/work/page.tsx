@@ -9,9 +9,10 @@ export default function WorkPage() {
 
       <Accordion
         title={
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-full ml-2">
             <div>
-              <h2 className="text-xl font-semibold">Frontend Lead @ Indiagold</h2>
+              <h2 className="text-xl font-semibold">Frontend Lead</h2>
+              <h3>@ Indiagold</h3>
               <p className="text-gray-600">Mar 2022 - Present | Abu Dhabi, UAE</p>
             </div>
           </div>
@@ -19,7 +20,7 @@ export default function WorkPage() {
         defaultValue={true}
       >
         <ul className="space-y-3 mt-8 md:pl-8">
-          <Accordion title={<h3 className="font-semibold ml-4">Architecture & Performance</h3>} defaultValue={true}>
+          <Accordion className="ml-4" title={<h3 className="font-semibold ml-4">Architecture & Performance</h3>} defaultValue={true}>
             <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <h4 className="font-bold">Marketing Website</h4>
@@ -100,7 +101,7 @@ export default function WorkPage() {
               </div>
             </div>
           </Accordion>
-          <Accordion title={<h3 className="font-semibold ml-4">SEO & Marketing</h3>} defaultValue={true}>
+          <Accordion className="ml-4" title={<h3 className="font-semibold ml-4">SEO & Marketing</h3>} defaultValue={true}>
             <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <p className="text-gray-600 mb-4">Built and maintained company&apos;s marketing website focused on organic growth and ads marketing. Implemented comprehensive SEO strategy including programmatic meta-data management, structured data, and content optimization. Led technical discussions for marketing initiatives and content strategy.</p>
@@ -137,7 +138,7 @@ export default function WorkPage() {
             </div>
           </Accordion>
 
-          <Accordion title={<h3 className="font-semibold ml-4">Testing & Optimization</h3>} defaultValue={true}>
+          <Accordion className="ml-4" title={<h3 className="font-semibold ml-4">Testing & Optimization</h3>} defaultValue={true}>
             <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <h4 className="font-bold">In-House A/B Testing Platform</h4>
@@ -175,7 +176,7 @@ export default function WorkPage() {
             </div>
           </Accordion>
 
-          <Accordion title={<h3 className="font-semibold ml-4">Team Leadership</h3>} defaultValue={true}>
+          <Accordion className="ml-4" title={<h3 className="font-semibold ml-4">Team Leadership</h3>} defaultValue={true}>
             <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <h4 className="font-bold">Team Transformation</h4>
@@ -201,7 +202,102 @@ export default function WorkPage() {
           </Accordion>
         </ul>
       </Accordion>
+      <div className="mt-4"></div>
+      <Accordion
+        title={
+          <div className="flex justify-between items-center w-full ml-2">
+            <div>
+              <h2 className="text-xl font-semibold">Software Developer</h2>
+              <h3>@ StoryXpress</h3>
+              <p className="text-gray-600">Jan 2021 - March 2022 | Gurgaon, India</p>
+            </div>
+          </div>
+        }
+        defaultValue={true}
+      >
+        <ul className="space-y-3 mt-8 md:pl-8">
+          <Accordion title={<h3 className="font-semibold ml-4">Cross-Platform Development</h3>} defaultValue={true}>
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
+              {/* Native Desktop App */}
+              <div>
+                <h4 className="font-bold">Native Desktop Application</h4>
+                <p className="text-gray-600 mb-2">Built cross-platform desktop application for Windows and macOS, enabling screen recording, video editing, and real-time analytics.</p>
+                <h5 className="font-semibold">Tech Stack</h5>
+                <ul className="mb-4">
+                  <ListItem>Electron.js</ListItem>
+                  <ListItem>React + TypeScript</ListItem>
+                  <ListItem>WebSocket for real-time communication</ListItem>
+                  <ListItem>Native OS APIs integration</ListItem>
+                </ul>
+              </div>
 
+              <Divider />
+
+              {/* Web Application */}
+              <div>
+                <h4 className="font-bold">Web Platform</h4>
+                <p className="text-gray-600 mb-2">Developed web application for video hosting, analytics, and team collaboration.</p>
+                <h5 className="font-semibold">Tech Stack</h5>
+                <ul className="mb-4">
+                  <ListItem>React + TypeScript</ListItem>
+                  <ListItem>Styled Components</ListItem>
+                  <ListItem>WebSocket for real-time updates</ListItem>
+                  <ListItem>Video.js for playback</ListItem>
+                </ul>
+              </div>
+
+              <Divider />
+
+              {/* Chrome Extension */}
+              <div>
+                <h4 className="font-bold">Browser Extension</h4>
+                <p className="text-gray-600 mb-2">Created Chrome extension for in-browser screen recording and quick sharing.</p>
+                <h5 className="font-semibold">Tech Stack</h5>
+                <ul className="mb-4">
+                  <ListItem>Chrome Extension APIs</ListItem>
+                  <ListItem>React + TypeScript</ListItem>
+                  <ListItem>WebRTC for screen capture</ListItem>
+                  <ListItem>Extension Manifest V3</ListItem>
+                </ul>
+              </div>
+
+              <Divider />
+
+              {/* SDK */}
+              <div>
+                <h4 className="font-bold">Integration SDK</h4>
+                <p className="text-gray-600 mb-2">Built embeddable SDK for third-party integrations with single-line implementation.</p>
+                <h5 className="font-semibold">Key Features</h5>
+                <ul className="mb-4">
+                  <ListItem>Single script integration</ListItem>
+                  <ListItem>Custom styling support</ListItem>
+                  <ListItem>Event-driven architecture</ListItem>
+                  <ListItem>Analytics integration</ListItem>
+                </ul>
+              </div>
+
+              {/* Overall Metrics */}
+              <div>
+                <h5 className="font-semibold mt-4">Platform Impact</h5>
+                <ul className="mb-2">
+                  <ListItem>
+                    Active Users: <span className="font-semibold">1.5M+</span>
+                  </ListItem>
+                  <ListItem>
+                    Content Processed: <span className="font-semibold">30M hours</span>
+                  </ListItem>
+                  <ListItem>
+                    Desktop App Size: <span className="font-semibold">40% reduction</span>
+                  </ListItem>
+                  <ListItem>
+                    Web Performance: <span className="font-semibold">80+ PageSpeed score</span>
+                  </ListItem>
+                </ul>
+              </div>
+            </div>
+          </Accordion>
+        </ul>
+      </Accordion>
       {/* Add similar Accordions for StoryXpress, Delinno, and CSimplifyIT */}
     </main>
   );
