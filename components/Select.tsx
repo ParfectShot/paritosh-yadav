@@ -70,7 +70,9 @@ const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValu
         <ul className={styles.menu} role="listbox">
           {options.map((option, idx) => {
             return (
-              <li key={option} role="option" tabIndex={0} className={Utilities.classNames(styles.item)} onClick={() => handleSelect(option)}>
+              <li key={option} aria-selected={
+                index === idx ? 'true' : 'false'
+              } role="option" tabIndex={0} className={Utilities.classNames(styles.item)} onClick={() => handleSelect(option)}>
                 {option}
               </li>
             );

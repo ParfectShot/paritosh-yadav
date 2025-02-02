@@ -39,7 +39,9 @@ const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props,
           if (each.modal) {
             return (
               <ModalTrigger key={`action-items-${index}`} modal={each.modal} modalProps={each.modalProps}>
-                <ActionListItem children={each.children} icon={each.icon} />
+                <ActionListItem icon={each.icon}>
+                  {each.children}
+                </ActionListItem>
               </ModalTrigger>
             );
           }
@@ -47,7 +49,6 @@ const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props,
           return (
             <ActionListItem
               key={`action-items-${index}`}
-              children={each.children}
               icon={each.icon}
               href={each.href}
               target={each.target}
@@ -60,7 +61,9 @@ const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props,
                   onClose();
                 }
               }}
-            />
+            >
+              {each.children}
+            </ActionListItem>
           );
         })}
 

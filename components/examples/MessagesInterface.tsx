@@ -474,8 +474,8 @@ const MessagesInterface: React.FC<MessagesInterfaceProps> = () => {
         <Message>Why are they all looking at me?</Message>
         <MessageViewer>Because my subconscious feels that someone else is creating this world. The more you change things, the quicker the projections start to converge on you.</MessageViewer>
         <Message>Converge?</Message>
-        <MessageViewer>It's the foreign nature of the dreamer. They attack like white blood cells fighting an infection.</MessageViewer>
-        <Message>They're going to attack us?</Message>
+        <MessageViewer>It&apos;s the foreign nature of the dreamer. They attack like white blood cells fighting an infection.</MessageViewer>
+        <Message>They&apos;re going to attack us?</Message>
         <MessageViewer>No. Just you.</MessageViewer>
         <br />
         <br />

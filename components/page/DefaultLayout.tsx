@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from '@components/page/DefaultLayout.module.scss';
 
 import * as React from 'react';

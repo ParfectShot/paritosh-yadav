@@ -36,11 +36,9 @@ function DropdownMenuTrigger({ children, items, hotkey }: DropdownMenuTriggerPro
   const onOutsideEvent = React.useCallback(() => setOpen(false), []);
   const onClose = React.useCallback(() => setWillClose(true), []);
 
-  if (hotkey) {
-    useHotkeys(hotkey, () => {
-      setOpen(!open);
-    });
-  }
+  useHotkeys(hotkey || '', () => {
+    setOpen(!open);
+  });
 
   React.useEffect(() => {
     if (focusChildren) {

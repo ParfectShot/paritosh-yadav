@@ -23,10 +23,6 @@ interface BlockLoaderProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, '
 }
 
 const BlockLoader: React.FC<BlockLoaderProps> = ({ mode = 0 }) => {
-  if (!SEQUENCES[mode]) {
-    return <span className={styles.block}>�</span>;
-  }
-
   const [index, setIndex] = React.useState(0);
   const intervalRef = React.useRef<number | null>(null);
   const indexLength = SEQUENCES[mode].length;
@@ -46,6 +42,10 @@ const BlockLoader: React.FC<BlockLoaderProps> = ({ mode = 0 }) => {
       }
     };
   }, [indexLength]);
+
+  if (!SEQUENCES[mode]) {
+    return <span className={styles.block}>�</span>;
+  }
 
   return <span className={styles.root}>{SEQUENCES[mode][index]}</span>;
 };
