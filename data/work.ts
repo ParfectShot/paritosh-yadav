@@ -137,6 +137,34 @@ export const workData: WorkExperience = {
             },
           ],
         },
+        {
+          sectionTitle: 'Client-Side Optimizations',
+          metrics: [
+            {
+              label: 'Pagespeed Score',
+              value: { before: '65', after: '90' },
+              category: 'performance',
+            },
+            {
+              label: 'Page Load (Full Bandwidth)',
+              value: { before: '450ms', after: '250ms' },
+              comparison: { cached: '250ms' },
+              category: 'performance',
+            },
+            {
+              label: 'Page Load (4g)',
+              value: { before: '1.2s', after: '500ms' },
+              comparison: { cached: '500ms' },
+              category: 'performance',
+            },
+            {
+              label: 'Page Load (3g)',
+              value: { before: '15s', after: '3.5s' },
+              comparison: { cached: '3.5s' },
+              category: 'performance',
+            },
+          ],
+        }
       ],
     },
   },
