@@ -20,7 +20,7 @@ export default function WorkPage() {
       >
         <ul className="space-y-3 mt-8 md:pl-8">
           <Accordion title={<h3 className="font-semibold ml-4">Architecture & Performance</h3>} defaultValue={true}>
-            <div className="mb-6 mt-4 bg-gray-50 p-4 rounded-md text-sm">
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <h4 className="font-bold">Marketing Website</h4>
                 <p className="text-gray-600 mb-2">Implemented Next.js best practices including dynamic imports, image optimization, and route prefetching. Utilized static generation with ISR and CDN integration. Reduced bundle size through code splitting, tree shaking and removing duplicate JS & CSS.</p>
@@ -101,7 +101,7 @@ export default function WorkPage() {
             </div>
           </Accordion>
           <Accordion title={<h3 className="font-semibold ml-4">SEO & Marketing</h3>} defaultValue={true}>
-            <div className="mb-6 mt-4 bg-gray-50 p-4 rounded-md text-sm">
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <p className="text-gray-600 mb-4">Built and maintained company&apos;s marketing website focused on organic growth and ads marketing. Implemented comprehensive SEO strategy including programmatic meta-data management, structured data, and content optimization. Led technical discussions for marketing initiatives and content strategy.</p>
 
@@ -138,7 +138,7 @@ export default function WorkPage() {
           </Accordion>
 
           <Accordion title={<h3 className="font-semibold ml-4">Testing & Optimization</h3>} defaultValue={true}>
-            <div className="mb-6 mt-4 bg-gray-50 p-4 rounded-md text-sm">
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <h4 className="font-bold">In-House A/B Testing Platform</h4>
                 <p className="text-gray-600 mb-4">Developed custom A/B testing framework for testing different variations of pages and components. Implemented user segmentation, analytics tracking, and statistical significance calculations.</p>
@@ -176,7 +176,7 @@ export default function WorkPage() {
           </Accordion>
 
           <Accordion title={<h3 className="font-semibold ml-4">Team Leadership</h3>} defaultValue={true}>
-            <div className="mb-6 mt-4 bg-gray-50 p-4 rounded-md text-sm">
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
               <div>
                 <h4 className="font-bold">Team Transformation</h4>
                 <p className="text-gray-600 mb-4">Led frontend team transformation from 7 to 3 members while improving delivery speed and code quality. Implemented incremental architecture improvements and modern development practices. Mentored team members in technical growth and process improvements.</p>

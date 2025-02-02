@@ -15,7 +15,7 @@
         "./common/*"
       ],
       "@data/*": [
-        "./data/*"
+        "components/data/*"
       ],
       "@components/*": [
         "./components/*"

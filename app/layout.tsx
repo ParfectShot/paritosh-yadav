@@ -13,7 +13,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="theme-light">
         <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm">
           <div className="flex justify-between items-center p-4">
-            <Avatar src={MainLogo.src} href="./" />
+            <div className='flex items-center justify-center gap-4'>
+              <Avatar src={MainLogo.src} href="./" />
+              <h3 className="text-xl font-bold">Paritosh</h3>
+            </div>
             <div className="w-4rem">
               <Button>Contact</Button>
             </div>
