@@ -205,7 +205,7 @@ export default function WorkPage() {
       <div className="mt-4"></div>
       <Accordion
         title={
-          <div className="flex justify-between items-center w-full ml-2">
+          <div className="flex justify-between items-center w-full ml-2 mb-4">
             <div>
               <h2 className="text-xl font-semibold">Software Developer</h2>
               <h3>@ StoryXpress</h3>
@@ -296,6 +296,162 @@ export default function WorkPage() {
               </div>
             </div>
           </Accordion>
+          <Accordion title={<h3 className="font-semibold ml-4">Team Leadership</h3>} defaultValue={true}>
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
+              <div>
+                <h4 className="font-bold">Team Mentorship</h4>
+                <p className="text-gray-600 mb-4">First leadership role mentoring 3 fresh graduates. Focused on technical skill development, best practices, and fostering a learning environment. Learned valuable leadership skills including patience, emotional management, and team accountability.</p>
+
+                <h5 className="font-semibold">Mentorship Activities</h5>
+                <ul className="mb-4">
+                  <ListItem>Regular pair programming sessions</ListItem>
+                  <ListItem>Hands-on learning projects</ListItem>
+                  <ListItem>Code review feedback sessions</ListItem>
+                  <ListItem>Technical documentation workshops</ListItem>
+                </ul>
+
+                <h5 className="font-semibold">Team Development</h5>
+                <ul className="mb-4">
+                  <ListItem>Individual growth plans for each team member</ListItem>
+                  <ListItem>Weekly knowledge sharing sessions</ListItem>
+                  <ListItem>Agile development practices</ListItem>
+                  <ListItem>Cross-platform development exposure</ListItem>
+                </ul>
+
+                <h5 className="font-semibold">Personal Growth</h5>
+                <ul className="mb-4">
+                  <ListItem>Improved communication and patience</ListItem>
+                  <ListItem>Enhanced emotional intelligence</ListItem>
+                  <ListItem>Better delegation and task management</ListItem>
+                  <ListItem>Strengthened accountability mindset</ListItem>
+                </ul>
+              </div>
+            </div>
+          </Accordion>
+        </ul>
+      </Accordion>
+      <Accordion
+        title={
+          <div className="flex justify-between items-center w-full ml-2 mb-4">
+            <div>
+              <h2 className="text-xl font-semibold">Full Stack Developer</h2>
+              <h3>@ Delinno</h3>
+              <p className="text-gray-600">Dec 2019 - Dec 2020 | Gurgaon, India</p>
+            </div>
+          </div>
+        }
+        defaultValue={true}
+      >
+        <ul className="space-y-3 mt-8 md:pl-8">
+          <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
+            {/* ESG Dashboard */}
+            <div>
+              <h4 className="font-bold">ESG Management Dashboard</h4>
+              <p className="text-gray-600 mb-2">Built scalable dashboard for Environmental, Social, and Governance (ESG) management enabling data-driven decision making for enterprise clients.</p>
+              <h5 className="font-semibold">Tech Stack</h5>
+              <ul className="mb-4">
+                <ListItem>React.js</ListItem>
+                <ListItem>Redux</ListItem>
+                <ListItem>Styled Components</ListItem>
+                <ListItem>Ant Design</ListItem>
+              </ul>
+            </div>
+
+            <Divider />
+
+            {/* Survey Platform */}
+            <div>
+              <h4 className="font-bold">Survey Platform</h4>
+              <p className="text-gray-600 mb-2">Contributed to enterprise survey platform used by global organizations and governments.</p>
+              <h5 className="font-semibold">Tech Stack</h5>
+              <ul className="mb-4">
+                <ListItem>React (Frontend)</ListItem>
+                <ListItem>Python/Django (Backend)</ListItem>
+                <ListItem>PostgreSQL</ListItem>
+              </ul>
+              <h5 className="font-semibold">Impact</h5>
+              <ul className="mb-4">
+                <ListItem>
+                  Surveys Completed: <span className="font-semibold">14,000+</span>
+                </ListItem>
+                <ListItem>
+                  Global Organizations Served: <span className="font-semibold">50+</span>
+                </ListItem>
+              </ul>
+            </div>
+
+            <Divider />
+
+            {/* LMS */}
+            <div>
+              <h4 className="font-bold">Fitness Trainer LMS</h4>
+              <p className="text-gray-600 mb-2">Developed Learning Management System for fitness trainers with course management, progress tracking, and assessment features.</p>
+              <h5 className="font-semibold">Tech Stack</h5>
+              <ul className="mb-4">
+                <ListItem>React + Material UI (Frontend)</ListItem>
+                <ListItem>Django (Backend)</ListItem>
+                <ListItem>REST APIs</ListItem>
+              </ul>
+              <h5 className="font-semibold">Metrics</h5>
+              <ul className="mb-2">
+                <ListItem>
+                  App Downloads: <span className="font-semibold">44K+</span>
+                </ListItem>
+                <ListItem>
+                  Active Trainers: <span className="font-semibold">1000+</span>
+                </ListItem>
+              </ul>
+            </div>
+          </div>
+        </ul>
+      </Accordion>
+      <Accordion
+        title={
+          <div className="flex justify-between items-center w-full ml-2">
+            <div>
+              <h2 className="text-xl font-semibold">Technical Consultant</h2>
+              <h3>@ CSimplifyIT</h3>
+              <p className="text-gray-600">Jan 2019 - Nov 2019 | Gurugram, India</p>
+            </div>
+          </div>
+        }
+        defaultValue={true}
+      >
+        <ul className="space-y-3 mt-8 md:pl-8">
+            <div className="mb-6 mt-4 bg-slate-50 p-4 rounded-md text-sm">
+              <div>
+                <h4 className="font-bold">Google Add-ons Development</h4>
+                <p className="text-gray-600 mb-2">Developed productivity tools for Google Workspace, focusing on email automation and recruitment process optimization.</p>
+
+                <h5 className="font-semibold">Key Projects</h5>
+                <ul className="mb-4">
+                  <ListItem>Simple Mass Mail Merge (30k+ downloads)</ListItem>
+                  <ListItem>Simple Recruitment Manager</ListItem>
+                </ul>
+
+                <h5 className="font-semibold">Tech Stack</h5>
+                <ul className="mb-4">
+                  <ListItem>Google Apps Script</ListItem>
+                  <ListItem>jQuery</ListItem>
+                  <ListItem>Google Workspace APIs</ListItem>
+                </ul>
+              </div>
+
+              <Divider />
+
+              <div>
+                <h4 className="font-bold">OCR System</h4>
+                <p className="text-gray-600 mb-2">Re-Built Python-based OCR and document management system with improved efficiency and accuracy.</p>
+
+                <h5 className="font-semibold">Tech Stack</h5>
+                <ul className="mb-4">
+                  <ListItem>Python</ListItem>
+                  <ListItem>OpenCV</ListItem>
+                  <ListItem>Django</ListItem>
+                  <ListItem>Apache Kafka</ListItem>
+                </ul>
+              </div>
+            </div>
         </ul>
       </Accordion>
       {/* Add similar Accordions for StoryXpress, Delinno, and CSimplifyIT */}
