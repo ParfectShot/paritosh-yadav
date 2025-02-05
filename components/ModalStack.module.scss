@@ -16,6 +16,7 @@
   z-index: 9;
   height: 100vh;
   backdrop-filter: blur(4px);
+  pointer-events: auto;
 }
 
 .root {

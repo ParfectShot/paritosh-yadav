@@ -10,7 +10,6 @@ interface ModalStackProps {}
 
 const ModalStack: React.FC<ModalStackProps> = () => {
   const { modalStack, close } = useModals();
-
   const totalModals = modalStack.length;
 
   return (
@@ -24,7 +23,7 @@ const ModalStack: React.FC<ModalStackProps> = () => {
 
         return (
           <>
-          <div className={styles.backdrop} onClick={() => close()} />
+          <div className={styles.backdrop} onClick={(e: React.MouseEvent) => close(key)}  />
           <div
             key={key}
             className={styles.item}
