@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-us">
       <body className="theme-light">
         <Providers>
-          <div className="sticky top-0 z-50 backdrop-blur-sm">
+          <div className="sticky top-0 z-10 backdrop-blur-sm">
             <div className="flex justify-between items-center p-4">
               <div className="flex items-center justify-center gap-4">
                 <Avatar src={MainLogo.src} href="./" />

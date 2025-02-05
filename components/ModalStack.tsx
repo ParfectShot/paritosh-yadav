@@ -9,7 +9,7 @@ import { useModals } from '@components/page/ModalContext';
 interface ModalStackProps {}
 
 const ModalStack: React.FC<ModalStackProps> = () => {
-  const { modalStack } = useModals();
+  const { modalStack, close } = useModals();
 
   const totalModals = modalStack.length;
 
@@ -23,6 +23,8 @@ const ModalStack: React.FC<ModalStackProps> = () => {
         const blur = offsetFromLast * 1.1;
 
         return (
+          <>
+          <div className={styles.backdrop} onClick={() => close()} />
           <div
             key={key}
             className={styles.item}
@@ -34,6 +36,8 @@ const ModalStack: React.FC<ModalStackProps> = () => {
           >
             <ModalComponent {...props} />
           </div>
+    </>
+
         );
       })}
     </div>
