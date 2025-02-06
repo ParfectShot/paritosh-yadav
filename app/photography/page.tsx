@@ -29,8 +29,12 @@ export default function PhotographyPage() {
   return (
     <Card title="Photography">
       <div className="flex justify-center space-x-4 mb-4">
-        <ActionButton onClick={() => setViewMode('grid')}>Grid</ActionButton>
-        <ActionButton onClick={() => setViewMode('auto')}>Auto</ActionButton>
+        <ActionButton onClick={() => setViewMode('grid')} isSelected={viewMode === 'grid'}>
+          Grid
+        </ActionButton>
+        <ActionButton onClick={() => setViewMode('auto')} isSelected={viewMode === 'auto'}>
+          Auto
+        </ActionButton>
       </div>
       {viewMode === 'grid' ? (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
