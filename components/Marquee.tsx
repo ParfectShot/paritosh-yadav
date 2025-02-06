@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Marquee.module.css';
+import styles from './Marquee.module.scss';
 
 interface MarqueeProps {
   direction: 'up' | 'down' | 'left' | 'right';

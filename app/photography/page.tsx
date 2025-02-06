@@ -45,8 +45,8 @@ export default function PhotographyPage() {
           ))}
         </div>
       ) : (
-        <Marquee direction="up" height="100vh">
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 mx-auto">
+        <Marquee direction="up" height="90vh">
+          <div className="sm:columns-1 md:columns-2 lg:columns-3 gap-4 mx-auto">
             {images.map((src, index) => (
               <div key={index} className="break-inside-avoid mb-4">
                 <Image src={src} alt={`Photography ${index + 1}`} width={800} height={600} className="w-full h-auto object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
