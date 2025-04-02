@@ -24,8 +24,8 @@ type Route = {
 
 const routes: Route[] = [
   { path: '/work', label: 'Work', theme: 'theme-light' },
+  { path: '/projects', label: 'Projects', theme: 'theme-light' },
   { path: '/photography', label: 'Photography', theme: 'theme-dark' },
-  { path: '/blog', label: 'Blog', theme: 'theme-light' },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
