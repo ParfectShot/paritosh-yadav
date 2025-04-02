@@ -65,6 +65,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Avatar src={MainLogo.src} href="./" />
                 <h3 className="text-xl font-bold">Paritosh</h3>
               </div>
+              <div className="items-center justify-center hidden md:flex">
+                <Navigation>
+                  {routes.map(({ path, label }) => (
+                    <Link key={path} className={`mx-4 ${isActive(path) ? 'border-b-2 border-current' : ''}`} href={path}>
+                      {label}
+                    </Link>
+                  ))}
+                </Navigation>
+              </div>
               <div className="w-4rem">
                 <ModalTrigger modal={ContactModal}>
                   <Button>Contact</Button>
@@ -72,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center md:hidden">
             <Navigation>
               {routes.map(({ path, label }) => (
                 <Link key={path} className={`mx-4 ${isActive(path) ? 'border-b-2 border-current' : ''}`} href={path}>
