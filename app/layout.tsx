@@ -4,6 +4,7 @@ import '@root/global.css';
 import { useCallback, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { Analytics } from "@vercel/analytics/react"
 import Avatar from '@components/Avatar';
 import Button from '@components/Button';
 import Navigation from '@components/Navigation';
@@ -13,6 +14,7 @@ import MainLogo from '@root/app/assets/icons/main-logo.webp';
 import ModalTrigger from '@root/components/ModalTrigger';
 import ContactModal from '@root/components/modals/ModalContact';
 import ModalStack from '@root/components/ModalStack';
+import Head from 'next/head';
 
 type Route = {
   path: string;
@@ -35,9 +37,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     onHandleThemeChange(routes.find(({ path }) => isActive(path))?.theme || 'theme-light');
   }, [pathname, isActive]);
 
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
 
   return (
     <html lang="en-us">
+      <Head>
+        <title>Paritosh</title>
+        <meta name="description" content="Paritosh's personal website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        {!isDevelopment && (
+          <>
+            <meta name="google-site-verification" content="TT6Q0Nw9rcPnAj7v0eSZ38s6IPDZigFvz5m9Owzuq-M" />
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YSE678JXW"></script>
+            <script dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-2YSE678JXW');`
+              }}></script>
+          </>
+        )}
+      </Head>
       <body className="theme-light">
         <Providers>
           <div className="sticky top-0 z-10 backdrop-blur-sm">
@@ -65,6 +84,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <ModalStack />
         </Providers>
+        {!isDevelopment && (
+          <>  
+            <Analytics mode="production" />
+          </>
+        )}
       </body>
     </html>
   );
