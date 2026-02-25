@@ -20,25 +20,32 @@ export default function HeroSection() {
 
   createEffect(() => {
     const currentRole = roles[roleIndex()];
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting()) {
-          setDisplayText(currentRole.slice(0, charIndex() + 1));
-          setCharIndex((c) => c + 1);
-          if (charIndex() + 1 === currentRole.length) {
-            setTimeout(() => setIsDeleting(true), 2000);
-          }
-        } else {
-          setDisplayText(currentRole.slice(0, charIndex() - 1));
-          setCharIndex((c) => c - 1);
-          if (charIndex() <= 1) {
-            setIsDeleting(false);
-            setRoleIndex((r) => (r + 1) % roles.length);
-          }
+    const ci = charIndex();
+    const deleting = isDeleting();
+
+    // Pause when fully typed (waiting for delete trigger) or fully deleted
+    if (!deleting && ci >= currentRole.length) return;
+    if (deleting && ci <= 0) return;
+
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        const next = ci + 1;
+        setDisplayText(currentRole.slice(0, next));
+        setCharIndex(next);
+        if (next >= currentRole.length) {
+          setTimeout(() => setIsDeleting(true), 2000);
         }
-      },
-      isDeleting() ? 40 : 80
-    );
+      } else {
+        const next = ci - 1;
+        setDisplayText(currentRole.slice(0, next));
+        setCharIndex(next);
+        if (next <= 0) {
+          setIsDeleting(false);
+          setRoleIndex((r) => (r + 1) % roles.length);
+        }
+      }
+    }, deleting ? 40 : 80);
+
     onCleanup(() => clearTimeout(timeout));
   });
 

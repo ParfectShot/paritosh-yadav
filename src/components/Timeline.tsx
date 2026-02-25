@@ -2,28 +2,17 @@ import { onMount } from "solid-js";
 
 const timelineData = [
   {
-    year: "2019",
-    company: "CSimplifyIT",
-    role: "Technical Consultant",
-    location: "Gurugram",
+    year: "2022–Present",
+    company: "Indiagold",
+    role: "Frontend Lead",
+    location: "Abu Dhabi",
     achievements: [
-      "Developed Google Workspace productivity tools — 30K+ downloads",
-      "Rebuilt OCR document management system with improved efficiency",
+      "Leading frontend architecture for fintech platform",
+      "PageSpeed: 45 → 95, Organic Traffic: 0 → 800k+ clicks/month",
+      "Team transformation: 7 → 3 members with improved delivery",
     ],
-    tech: ["Google Apps Script", "Python", "OpenCV", "Django"],
-    active: false,
-  },
-  {
-    year: "2019–2020",
-    company: "Delinno",
-    role: "Full Stack Developer",
-    location: "Gurgaon",
-    achievements: [
-      "Built ESG dashboard, survey platform used by 50+ global organizations",
-      "Developed fitness trainer LMS — 44K+ downloads, 1000+ active trainers",
-    ],
-    tech: ["React", "Redux", "Python", "Django", "PostgreSQL"],
-    active: false,
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
+    active: true,
   },
   {
     year: "2021–2022",
@@ -39,17 +28,28 @@ const timelineData = [
     active: false,
   },
   {
-    year: "2022–Present",
-    company: "Indiagold",
-    role: "Frontend Lead",
-    location: "Abu Dhabi",
+    year: "2019–2020",
+    company: "Delinno",
+    role: "Full Stack Developer",
+    location: "Gurgaon",
     achievements: [
-      "Leading frontend architecture for fintech platform",
-      "PageSpeed: 45 → 95, Organic Traffic: 0 → 800k+ clicks/month",
-      "Team transformation: 7 → 3 members with improved delivery",
+      "Built ESG dashboard, survey platform used by 50+ global organizations",
+      "Developed fitness trainer LMS — 44K+ downloads, 1000+ active trainers",
     ],
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand"],
-    active: true,
+    tech: ["React", "Redux", "Python", "Django", "PostgreSQL"],
+    active: false,
+  },
+  {
+    year: "2019",
+    company: "CSimplifyIT",
+    role: "Technical Consultant",
+    location: "Gurugram",
+    achievements: [
+      "Developed Google Workspace productivity tools — 30K+ downloads",
+      "Rebuilt OCR document management system with improved efficiency",
+    ],
+    tech: ["Google Apps Script", "Python", "OpenCV", "Django"],
+    active: false,
   },
 ];
 
