@@ -1,60 +1,102 @@
-import { createSignal, onMount, onCleanup } from "solid-js";
+import { createSignal, createEffect, onMount, onCleanup } from "solid-js";
 import { ChevronDown } from "lucide-solid";
 
-export default function Hero() {
+const roles = [
+  "Frontend Engineer",
+  "Photographer",
+  "Builder",
+  "Problem Solver",
+];
+
+export default function HeroSection() {
   const [displayText, setDisplayText] = createSignal("");
-  const [showCursor, setShowCursor] = createSignal(true);
-  const fullText = "Developer × Photographer × Builder";
+  const [roleIndex, setRoleIndex] = createSignal(0);
+  const [charIndex, setCharIndex] = createSignal(0);
+  const [isDeleting, setIsDeleting] = createSignal(false);
 
-  onMount(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i <= fullText.length) {
-        setDisplayText(fullText.slice(0, i));
-        i++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 60);
+  let heroRef!: HTMLDivElement;
+  let subtitleRef!: HTMLParagraphElement;
+  let scrollRef!: HTMLDivElement;
 
-    onCleanup(() => clearInterval(interval));
+  createEffect(() => {
+    const currentRole = roles[roleIndex()];
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting()) {
+          setDisplayText(currentRole.slice(0, charIndex() + 1));
+          setCharIndex((c) => c + 1);
+          if (charIndex() + 1 === currentRole.length) {
+            setTimeout(() => setIsDeleting(true), 2000);
+          }
+        } else {
+          setDisplayText(currentRole.slice(0, charIndex() - 1));
+          setCharIndex((c) => c - 1);
+          if (charIndex() <= 1) {
+            setIsDeleting(false);
+            setRoleIndex((r) => (r + 1) % roles.length);
+          }
+        }
+      },
+      isDeleting() ? 40 : 80
+    );
+    onCleanup(() => clearTimeout(timeout));
+  });
+
+  onMount(async () => {
+    const gsap = (await import("gsap")).default;
+
+    // Hero content entrance
+    gsap.from(heroRef, { opacity: 0, y: 40, duration: 0.8, delay: 0.3 });
+
+    // Subtitle fade in
+    gsap.from(subtitleRef, { opacity: 0, duration: 0.6, delay: 1.2 });
+
+    // Scroll indicator fade in
+    gsap.from(scrollRef, { opacity: 0, duration: 0.5, delay: 2 });
   });
 
   return (
-    <section class="section-full relative flex flex-col items-center justify-center px-6 grid-bg">
-      <div class="relative z-10 text-center max-w-3xl">
-        <p class="font-mono text-xs uppercase tracking-widest text-accent mb-4 animate-fade-in-up">
-          // Hello World
+    <section class="section-full relative flex flex-col items-center justify-center px-6 overflow-hidden">
+      {/* Subtle grid bg */}
+      <div
+        class="absolute inset-0 opacity-[0.04]"
+        style={{
+          "background-image":
+            "linear-gradient(hsl(var(--muted-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--muted-foreground)) 1px, transparent 1px)",
+          "background-size": "60px 60px",
+        }}
+      />
+
+      <div ref={heroRef} class="relative z-10 text-center max-w-3xl" style="opacity: 0">
+        <p class="font-mono text-xs text-accent mb-4 tracking-widest uppercase">
+          {"// Hello, World"}
         </p>
 
-        <h1 class="text-4xl sm:text-5xl md:text-7xl font-mono font-bold text-foreground mb-6 animate-fade-in-up" style="animation-delay: 0.1s">
-          Paritosh Yadav<span class="text-primary">.</span>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-foreground">
+          Paritosh
         </h1>
 
-        <div class="font-mono text-lg sm:text-xl text-muted-foreground mb-8 h-8 animate-fade-in-up" style="animation-delay: 0.2s">
-          <span>{displayText()}</span>
-          <span class="typed-cursor" classList={{ "opacity-0": !showCursor() }} />
+        <div class="h-10 flex items-center justify-center">
+          <span class="font-mono text-lg md:text-xl text-muted-foreground">
+            {displayText()}
+          </span>
+          <span class="cursor-blink text-primary ml-0.5 font-mono text-lg md:text-xl">
+            |
+          </span>
         </div>
 
-        <div class="flex gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.4s">
-          <button
-            onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-            class="font-mono text-sm px-6 py-3 rounded-lg bg-primary text-white hover:opacity-90 transition-opacity"
-          >
-            Explore
-          </button>
-          <button
-            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            class="font-mono text-sm px-6 py-3 rounded-lg border border-border text-foreground hover:border-primary/50 transition-colors"
-          >
-            Get in Touch
-          </button>
-        </div>
+        <p ref={subtitleRef} class="mt-8 text-sm text-muted-foreground font-mono max-w-md mx-auto leading-relaxed" style="opacity: 0">
+          Building digital products by day, capturing moments through a lens,
+          and engineering off-grid solutions on weekends.
+        </p>
       </div>
 
       {/* Scroll indicator */}
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-scroll-bounce">
-        <ChevronDown size={24} class="text-muted-foreground" />
+      <div ref={scrollRef} class="absolute bottom-10 flex flex-col items-center gap-2" style="opacity: 0">
+        <span class="text-xs font-mono text-muted-foreground">scroll</span>
+        <div class="animate-scroll-bounce">
+          <ChevronDown size={16} class="text-muted-foreground" />
+        </div>
       </div>
     </section>
   );

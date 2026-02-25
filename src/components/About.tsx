@@ -1,46 +1,72 @@
-import { Code, Camera, Wrench } from "lucide-solid";
-import SectionLabel from "./SectionLabel";
+import { onMount } from "solid-js";
+import { Code2, Camera, Wrench } from "lucide-solid";
 
 const identities = [
   {
-    icon: Code,
+    icon: Code2,
     title: "Developer",
-    description:
-      "6+ years building web applications. From high-traffic marketing sites to cross-platform desktop apps — always chasing performance and clean architecture.",
+    description: "Frontend engineer specializing in React, TypeScript, and building scalable web applications.",
   },
   {
     icon: Camera,
     title: "Photographer",
-    description:
-      "Capturing stories through a lens. From landscapes to street photography, finding beauty in the everyday and the extraordinary.",
+    description: "Capturing moody, cinematic moments — from Himalayan winters to Abu Dhabi streets.",
   },
   {
     icon: Wrench,
     title: "Builder",
-    description:
-      "Creating tools and communities. Building Off Grid Collective and open-source utilities that solve real problems for real people.",
+    description: "Tinkering with solar systems, air purifiers, and inverter batteries. Making things work off-grid.",
   },
 ];
 
-export default function About() {
-  return (
-    <section id="about" class="section-full flex items-center py-24 px-6">
-      <div class="max-w-6xl mx-auto w-full">
-        <SectionLabel label="About" />
-        <h2 class="text-3xl sm:text-4xl font-mono font-bold text-foreground mb-12">
-          Who I Am<span class="text-primary">.</span>
-        </h2>
+export default function AboutSection() {
+  let headerRef!: HTMLDivElement;
+  let cardsRef!: HTMLDivElement;
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  onMount(async () => {
+    const gsap = (await import("gsap")).default;
+    const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(headerRef, {
+      opacity: 0, y: 30, duration: 0.6,
+      scrollTrigger: { trigger: headerRef, start: "top 80%", once: true },
+    });
+
+    gsap.from(cardsRef.children, {
+      opacity: 0, y: 30, duration: 0.5, stagger: 0.15,
+      scrollTrigger: { trigger: cardsRef, start: "top 85%", once: true },
+    });
+  });
+
+  return (
+    <section id="about" class="section-full flex items-center justify-center px-6 py-24">
+      <div class="max-w-4xl w-full">
+        <div ref={headerRef} style="opacity: 0">
+          <p class="font-mono text-xs text-accent mb-2 tracking-widest uppercase">
+            {"// About"}
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Who I am<span class="text-primary">.</span>
+          </h2>
+          <p class="text-muted-foreground max-w-2xl leading-relaxed mb-16">
+            I'm a frontend engineer based in Abu Dhabi, currently leading frontend at Indiagold.
+            I build things that live on screens, on rooftops, and sometimes in the middle of nowhere.
+            When I'm not shipping code, I'm probably out with a camera or wiring up a solar panel.
+          </p>
+        </div>
+
+        <div ref={cardsRef} class="grid md:grid-cols-3 gap-6">
           {identities.map((item) => (
-            <div class="gsap-reveal bg-card border border-border rounded-xl p-8 hover:border-primary/30 transition-all duration-300 group">
-              <div class="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
-                <item.icon size={24} class="text-primary" />
-              </div>
-              <h3 class="font-mono text-xl font-semibold text-foreground mb-3">
+            <div class="group p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-all duration-300" style="opacity: 0">
+              <item.icon
+                size={24}
+                class="text-primary mb-4 group-hover:text-accent transition-colors duration-300"
+              />
+              <h3 class="font-mono text-sm font-semibold text-foreground mb-2">
                 {item.title}
               </h3>
-              <p class="text-muted-foreground leading-relaxed text-sm">
+              <p class="text-sm text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
             </div>

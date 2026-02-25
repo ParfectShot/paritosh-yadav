@@ -1,73 +1,113 @@
-import { For, Show } from "solid-js";
-import { ExternalLink } from "lucide-solid";
-import { projects } from "~/data/projects";
-import SectionLabel from "./SectionLabel";
+import { onMount } from "solid-js";
+import { ExternalLink, Camera, FileImage, ScanText, Code2, Sun } from "lucide-solid";
 
-function statusColor(status: string) {
-  switch (status) {
-    case "Active":
-      return "text-accent border-accent/30";
-    case "In Development":
-      return "text-primary border-primary/30";
-    default:
-      return "text-muted-foreground border-border";
-  }
-}
+const projects = [
+  {
+    title: "Off Grid Collective",
+    description: "Solar systems, inverter batteries, and sustainable living documentation for the off-grid community.",
+    icon: Sun,
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://offgridcollective.co",
+  },
+  {
+    title: "Image Compressor",
+    description: "Client-side image compression tool with quality controls and batch processing.",
+    icon: FileImage,
+    tags: ["SolidJS", "Canvas API", "Web Workers"],
+    link: "#",
+  },
+  {
+    title: "Document OCR",
+    description: "Extract text from scanned documents and images using Tesseract.js.",
+    icon: ScanText,
+    tags: ["SolidJS", "Tesseract.js", "Tool"],
+    link: "#",
+  },
+  {
+    title: "paritosh.dev",
+    description: "Personal portfolio with smooth animations, breathing backgrounds, and ASCII mascot.",
+    icon: Code2,
+    tags: ["SolidJS", "GSAP", "Tailwind CSS"],
+    link: "#",
+  },
+  {
+    title: "Photography",
+    description: "Curated photo stories — Himalayan winters, Abu Dhabi streets, village life.",
+    icon: Camera,
+    tags: ["Stories", "Cinematic", "Gallery"],
+    link: "/photography",
+  },
+];
 
-export default function Projects() {
+export default function ProjectsSection() {
+  let headerRef!: HTMLDivElement;
+  let gridRef!: HTMLDivElement;
+
+  onMount(async () => {
+    const gsap = (await import("gsap")).default;
+    const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(headerRef, {
+      opacity: 0, y: 30, duration: 0.6,
+      scrollTrigger: { trigger: headerRef, start: "top 80%", once: true },
+    });
+
+    const cards = gridRef.querySelectorAll(".project-card");
+    gsap.from(cards, {
+      opacity: 0, y: 20, duration: 0.4, stagger: 0.1,
+      scrollTrigger: { trigger: gridRef, start: "top 85%", once: true },
+    });
+  });
+
   return (
-    <section id="projects" class="section-full flex items-center py-24 px-6">
-      <div class="max-w-6xl mx-auto w-full">
-        <SectionLabel label="Projects" />
-        <h2 class="text-3xl sm:text-4xl font-mono font-bold text-foreground mb-12">
-          What I Build<span class="text-primary">.</span>
-        </h2>
+    <section id="projects" class="section-full flex items-center justify-center px-6 py-24">
+      <div class="max-w-4xl w-full">
+        <div ref={headerRef} style="opacity: 0">
+          <p class="font-mono text-xs text-accent mb-2 tracking-widest uppercase">
+            {"// Projects"}
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-16">
+            Things I've Built<span class="text-primary">.</span>
+          </h2>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <For each={projects}>
-            {(project) => (
-              <div class="gsap-reveal bg-card border border-border rounded-xl p-8 hover:border-primary/30 transition-all duration-300 group flex flex-col">
-                <div class="flex items-start justify-between mb-4">
-                  <h3 class="font-mono text-xl font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <span
-                    class={`font-mono text-[10px] px-2 py-0.5 rounded border ${statusColor(project.status)}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
-                  {project.description}
-                </p>
-
-                <div class="flex items-center justify-between">
-                  <div class="flex flex-wrap gap-1.5">
-                    <For each={project.techStack}>
-                      {(tech) => (
-                        <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-secondary border border-border text-muted-foreground">
-                          {tech}
-                        </span>
-                      )}
-                    </For>
-                  </div>
-
-                  <Show when={project.url}>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-primary hover:text-primary/80 transition-colors"
-                      aria-label={`Visit ${project.title}`}
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                  </Show>
-                </div>
+        <div ref={gridRef} class="grid md:grid-cols-2 gap-4">
+          {projects.map((project) => (
+            <a
+              href={project.link}
+              target={project.link.startsWith("http") ? "_blank" : undefined}
+              rel={project.link.startsWith("http") ? "noopener noreferrer" : undefined}
+              class="project-card group relative p-6 rounded-lg bg-card border border-border hover:border-primary/40 transition-all duration-300 cursor-pointer"
+              style="opacity: 0"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <project.icon
+                  size={20}
+                  class="text-muted-foreground group-hover:text-primary transition-colors"
+                />
+                <ExternalLink
+                  size={14}
+                  class="text-muted-foreground/0 group-hover:text-muted-foreground transition-all duration-300"
+                />
               </div>
-            )}
-          </For>
+
+              <h3 class="font-mono text-sm font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed mb-4">
+                {project.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-secondary text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
