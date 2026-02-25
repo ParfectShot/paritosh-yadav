@@ -17,15 +17,15 @@ export default function ContactSection() {
     const { ScrollTrigger } = await import("gsap/ScrollTrigger");
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(headerRef, {
-      opacity: 0, y: 30, duration: 0.6,
-      scrollTrigger: { trigger: headerRef, start: "top 80%", once: true },
-    });
+    gsap.fromTo(headerRef,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, scrollTrigger: { trigger: headerRef, start: "top 80%", once: true } },
+    );
 
-    gsap.from(iconsRef, {
-      opacity: 0, duration: 0.5, delay: 0.2,
-      scrollTrigger: { trigger: iconsRef, start: "top 90%", once: true },
-    });
+    gsap.fromTo(iconsRef,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5, delay: 0.2, scrollTrigger: { trigger: iconsRef, start: "top 90%", once: true } },
+    );
   });
 
   return (

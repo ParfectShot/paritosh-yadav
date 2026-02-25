@@ -46,13 +46,13 @@ export default function HeroSection() {
     const gsap = (await import("gsap")).default;
 
     // Hero content entrance
-    gsap.from(heroRef, { opacity: 0, y: 40, duration: 0.8, delay: 0.3 });
+    gsap.fromTo(heroRef, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.3 });
 
     // Subtitle fade in
-    gsap.from(subtitleRef, { opacity: 0, duration: 0.6, delay: 1.2 });
+    gsap.fromTo(subtitleRef, { opacity: 0 }, { opacity: 1, duration: 0.6, delay: 1.2 });
 
     // Scroll indicator fade in
-    gsap.from(scrollRef, { opacity: 0, duration: 0.5, delay: 2 });
+    gsap.fromTo(scrollRef, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 2 });
   });
 
   return (

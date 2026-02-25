@@ -20,7 +20,7 @@ export default function Navbar() {
 
     // Slide-down entrance animation
     const gsap = (await import("gsap")).default;
-    gsap.from(navRef, { y: -100, duration: 0.5, delay: 1.5 });
+    gsap.fromTo(navRef, { y: -100 }, { y: 0, duration: 0.5, delay: 1.5 });
   });
 
   const handleClick = (href: string) => {

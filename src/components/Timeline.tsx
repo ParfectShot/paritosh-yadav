@@ -62,16 +62,16 @@ export default function TimelineSection() {
     const { ScrollTrigger } = await import("gsap/ScrollTrigger");
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(headerRef, {
-      opacity: 0, y: 30, duration: 0.6,
-      scrollTrigger: { trigger: headerRef, start: "top 80%", once: true },
-    });
+    gsap.fromTo(headerRef,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, scrollTrigger: { trigger: headerRef, start: "top 80%", once: true } },
+    );
 
     const items = itemsRef.querySelectorAll(".timeline-item");
-    gsap.from(items, {
-      opacity: 0, x: -20, duration: 0.5, stagger: 0.1,
-      scrollTrigger: { trigger: itemsRef, start: "top 85%", once: true },
-    });
+    gsap.fromTo(items,
+      { opacity: 0, x: -20 },
+      { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, scrollTrigger: { trigger: itemsRef, start: "top 85%", once: true } },
+    );
   });
 
   return (

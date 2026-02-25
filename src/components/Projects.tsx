@@ -48,16 +48,16 @@ export default function ProjectsSection() {
     const { ScrollTrigger } = await import("gsap/ScrollTrigger");
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(headerRef, {
-      opacity: 0, y: 30, duration: 0.6,
-      scrollTrigger: { trigger: headerRef, start: "top 80%", once: true },
-    });
+    gsap.fromTo(headerRef,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, scrollTrigger: { trigger: headerRef, start: "top 80%", once: true } },
+    );
 
     const cards = gridRef.querySelectorAll(".project-card");
-    gsap.from(cards, {
-      opacity: 0, y: 20, duration: 0.4, stagger: 0.1,
-      scrollTrigger: { trigger: gridRef, start: "top 85%", once: true },
-    });
+    gsap.fromTo(cards,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.1, scrollTrigger: { trigger: gridRef, start: "top 85%", once: true } },
+    );
   });
 
   return (
