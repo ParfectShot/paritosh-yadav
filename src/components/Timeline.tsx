@@ -5,7 +5,7 @@ const timelineData = [
     year: "2025–Present",
     company: "Trajector",
     role: "Senior Software Engineer",
-    location: "Remote, India",
+    location: "Gurugram, India · Hybrid",
     achievements: [
       "Reduced CI pipeline runtime from 20 minutes to 7 minutes, unblocking faster iteration cycles",
       "Built a central documentation app embedded in the codebase — single source of truth for architecture decisions",
@@ -19,7 +19,7 @@ const timelineData = [
     year: "2022–2025",
     company: "Indiagold",
     role: "SDE-III — Frontend",
-    location: "Gurugram, India",
+    location: "Gurugram, India · Abu Dhabi",
     achievements: [
       "Architected and refactored Admin Dashboard and Web App — 99.99% uptime, 60% faster builds",
       "Built a Next.js marketing site with Strapi CMS — grew organic traffic from ~30 to 800k+ clicks/month",
