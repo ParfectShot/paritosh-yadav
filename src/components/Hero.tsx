@@ -8,11 +8,20 @@ const roles = [
   "Problem Solver",
 ];
 
+const roleDescriptions: Record<string, string> = {
+  "Frontend Engineer": "Building digital products by day.",
+  "Photographer": "Capturing moments through a lens.",
+  "Builder": "Engineering off-grid solutions on weekends.",
+  "Problem Solver": "Turning complex challenges into simple solutions.",
+};
+
 export default function HeroSection() {
   const [displayText, setDisplayText] = createSignal("");
   const [roleIndex, setRoleIndex] = createSignal(0);
   const [charIndex, setCharIndex] = createSignal(0);
   const [isDeleting, setIsDeleting] = createSignal(false);
+  const [descriptionText, setDescriptionText] = createSignal(roleDescriptions[roles[0]]);
+  const [descriptionVisible, setDescriptionVisible] = createSignal(true);
 
   let heroRef!: HTMLDivElement;
   let subtitleRef!: HTMLParagraphElement;
@@ -33,6 +42,8 @@ export default function HeroSection() {
         setDisplayText(currentRole.slice(0, next));
         setCharIndex(next);
         if (next >= currentRole.length) {
+          setDescriptionVisible(true);
+          setDescriptionText(roleDescriptions[currentRole]);
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
@@ -40,6 +51,7 @@ export default function HeroSection() {
         setDisplayText(currentRole.slice(0, next));
         setCharIndex(next);
         if (next <= 0) {
+          setDescriptionVisible(false);
           setIsDeleting(false);
           setRoleIndex((r) => (r + 1) % roles.length);
         }
@@ -92,9 +104,23 @@ export default function HeroSection() {
           </span>
         </div>
 
-        <p ref={subtitleRef} class="mt-8 text-sm text-muted-foreground font-mono max-w-md mx-auto leading-relaxed" style="opacity: 0">
-          Building digital products by day, capturing moments through a lens,
-          and engineering off-grid solutions on weekends.
+        <p
+          ref={subtitleRef}
+          class="mt-8 text-sm text-muted-foreground font-mono max-w-md mx-auto leading-relaxed"
+          style={{
+            opacity: "0",
+            transition: "opacity 0.4s ease-in-out",
+            "min-height": "3lh",
+          }}
+        >
+          <span
+            style={{
+              opacity: descriptionVisible() ? "1" : "0",
+              transition: "opacity 0.4s ease-in-out",
+            }}
+          >
+            {descriptionText()}
+          </span>
         </p>
       </div>
 
