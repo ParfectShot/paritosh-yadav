@@ -50,7 +50,7 @@ export default function AboutSection() {
             Who I am<span class="text-primary">.</span>
           </h2>
           <p class="text-muted-foreground max-w-2xl leading-relaxed mb-16">
-            I'm a frontend engineer based in Abu Dhabi, currently leading frontend at Indiagold.
+            I'm a software engineer based in India, currently a Senior Software Engineer at Trajector.
             I build things that live on screens, on rooftops, and sometimes in the middle of nowhere.
             When I'm not shipping code, I'm probably out with a camera or wiring up a solar panel.
           </p>
