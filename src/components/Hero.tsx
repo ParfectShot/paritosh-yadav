@@ -110,6 +110,7 @@ export default function HeroSection() {
           style={{
             opacity: "0",
             transition: "opacity 0.4s ease-in-out",
+            "min-height": "3lh",
           }}
         >
           <span
