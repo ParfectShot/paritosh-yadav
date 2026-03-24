@@ -1,7 +1,8 @@
+import { A } from "@solidjs/router";
 import { createSignal, onMount, onCleanup, Show } from "solid-js";
 import { Menu, X } from "lucide-solid";
 
-const navLinks = [
+const sectionLinks = [
   { label: "About", href: "#about" },
   { label: "Timeline", href: "#timeline" },
   { label: "Projects", href: "#projects" },
@@ -53,7 +54,7 @@ export default function Navbar() {
 
           {/* Desktop */}
           <div class="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {sectionLinks.map((link) => (
               <button
                 onClick={() => handleClick(link.href)}
                 class="font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -61,6 +62,12 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
+            <A
+              href="/blog"
+              class="font-mono text-xs text-muted-foreground transition-colors duration-200 hover:text-primary"
+            >
+              Blog
+            </A>
           </div>
 
           {/* Mobile toggle */}
@@ -76,7 +83,7 @@ export default function Navbar() {
       {/* Mobile overlay */}
       <Show when={mobileOpen()}>
         <div class="fixed inset-0 z-30 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
-          {navLinks.map((link) => (
+          {sectionLinks.map((link) => (
             <button
               onClick={() => handleClick(link.href)}
               class="font-mono text-2xl text-foreground hover:text-primary transition-colors"
@@ -84,6 +91,13 @@ export default function Navbar() {
               {link.label}
             </button>
           ))}
+          <A
+            href="/blog"
+            onClick={() => setMobileOpen(false)}
+            class="font-mono text-2xl text-foreground hover:text-primary transition-colors"
+          >
+            Blog
+          </A>
         </div>
       </Show>
     </>
