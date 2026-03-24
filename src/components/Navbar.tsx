@@ -68,6 +68,12 @@ export default function Navbar() {
             >
               Blog
             </A>
+            <A
+              href="/photography"
+              class="font-mono text-xs text-muted-foreground transition-colors duration-200 hover:text-primary"
+            >
+              Photography
+            </A>
           </div>
 
           {/* Mobile toggle */}
@@ -97,6 +103,13 @@ export default function Navbar() {
             class="font-mono text-2xl text-foreground hover:text-primary transition-colors"
           >
             Blog
+          </A>
+          <A
+            href="/photography"
+            onClick={() => setMobileOpen(false)}
+            class="font-mono text-2xl text-foreground hover:text-primary transition-colors"
+          >
+            Photography
           </A>
         </div>
       </Show>

@@ -2,7 +2,7 @@ import { Meta, Title } from "@solidjs/meta";
 import { A } from "@solidjs/router";
 import { ArrowRight, CalendarDays, Clock3 } from "lucide-solid";
 import BlogCard from "~/components/BlogCard";
-import BlogHeader from "~/components/BlogHeader";
+import SiteHeader from "~/components/SiteHeader";
 import { blogPosts, featuredBlogPost, formatBlogDate } from "~/content/blog";
 
 export default function Blog() {
@@ -16,7 +16,7 @@ export default function Blog() {
 
       <div class="noise-overlay" />
       <div class="min-h-screen bg-background">
-        <BlogHeader />
+        <SiteHeader active="blog" />
 
         <main class="px-6 pb-20 pt-28">
           <div class="mx-auto max-w-5xl">
